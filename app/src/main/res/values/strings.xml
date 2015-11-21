@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Fyber</string>
+    <string name="offers">Offers</string>
+    <string name="uid">User Id</string>
+    <string name="api_key">API Key</string>
+    <string name="app_id">Application Id</string>
+    <string name="pub0">Custom parameters</string>
+    <string name="get_offers">Get Offers</string>
+    <string name="empty_offers">No offers</string>
+
+    <string name="error_cant_get_offers">Can\'t get offers with no uid, api key or appId</string>
+</resources>

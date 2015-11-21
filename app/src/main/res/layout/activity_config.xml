@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.bnsantos.fyber.activities.ConfigActivity">
+
+    <EditText
+        android:id="@+id/uid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/uid"
+        android:inputType="textPersonName"
+        android:imeOptions="actionNext" />
+
+    <EditText
+        android:id="@+id/apiKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/api_key"
+        android:layout_below="@id/uid"
+        android:inputType="textPersonName"
+        android:imeOptions="actionNext" />
+
+    <EditText
+        android:id="@+id/appId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/app_id"
+        android:layout_below="@id/apiKey"
+        android:inputType="textPersonName"
+        android:imeOptions="actionNext" />
+
+    <EditText
+        android:id="@+id/pub0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pub0"
+        android:layout_below="@id/appId"
+        android:inputType="textPersonName"
+        android:imeOptions="actionDone" />
+
+    <Button
+        android:id="@+id/offerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/get_offers"
+        android:layout_below="@+id/pub0"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
