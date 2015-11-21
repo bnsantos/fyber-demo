@@ -51,10 +51,10 @@ public class ConfigActivity extends AppCompatActivity {
     private void getOffers() {
         if (isValid()) {
             Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra(Constants.INTENT_EXTRA_UID, uid.getText().toString());
-            intent.putExtra(Constants.INTENT_EXTRA_API_KEY, apiKey.getText().toString());
-            intent.putExtra(Constants.INTENT_EXTRA_APP_ID, appId.getText().toString());
-            intent.putExtra(Constants.INTENT_EXTRA_PUB0, pub0.getText().toString());
+            intent.putExtra(Constants.EXTRA_UID, uid.getText().toString());
+            intent.putExtra(Constants.EXTRA_API_KEY, apiKey.getText().toString());
+            intent.putExtra(Constants.EXTRA_APP_ID, appId.getText().toString());
+            intent.putExtra(Constants.EXTRA_PUB0, pub0.getText().toString());
             startActivity(intent);
         } else {
             Toast.makeText(this, R.string.error_cant_get_offers, Toast.LENGTH_SHORT).show();
