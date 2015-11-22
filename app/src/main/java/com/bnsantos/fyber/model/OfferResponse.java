@@ -36,4 +36,28 @@ public class OfferResponse {
     public List<Offer> getOffers() {
         return offers;
     }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public void setInformation(Information information) {
+        this.information = information;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
+    }
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.provider.Settings;
 
 import com.bnsantos.fyber.provider.OfferProvider;
+import com.bnsantos.fyber.provider.RequestUtil;
 import com.bnsantos.fyber.service.OfferService;
 import com.google.gson.Gson;
 
@@ -16,6 +17,7 @@ import retrofit.RestAdapter;
  */
 public class App extends Application {
     private OfferProvider provider;
+    private RequestUtil requestUtil;
     private Gson gson;
 
     @Override
@@ -23,6 +25,7 @@ public class App extends Application {
         super.onCreate();
         gson = new Gson();
         provider = initOfferProvider();
+        requestUtil = initRequestUtil();
     }
 
     public OfferProvider getProvider() {
@@ -45,5 +48,13 @@ public class App extends Application {
 
     public static String deviceId(Context context) {
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+    }
+
+    protected RequestUtil initRequestUtil() {
+        return new RequestUtil();
+    }
+
+    public RequestUtil getRequestUtil() {
+        return requestUtil;
     }
 }

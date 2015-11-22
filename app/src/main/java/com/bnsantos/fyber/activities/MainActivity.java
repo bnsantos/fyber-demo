@@ -45,6 +45,7 @@ public class MainActivity extends RxAppCompatActivity {
 
     private OfferProvider provider;
     private int lastLoadedPage = 1;
+    private RequestUtil requestUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,8 @@ public class MainActivity extends RxAppCompatActivity {
             Toast.makeText(this, R.string.error_cant_get_offers, Toast.LENGTH_SHORT).show();
             finish();
         }
+
+        requestUtil = ((App) getApplication()).getRequestUtil();
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         adapter = new OffersAdapter(new ArrayList<Offer>(), this);
@@ -105,14 +108,14 @@ public class MainActivity extends RxAppCompatActivity {
     private void fetchOffers(final boolean clear, int page) {
         lastLoadedPage = page;
         swipeRefreshLayout.setRefreshing(true);
-        provider.getOffers(RequestUtil.generateQueryParams(this, appId, uid, pub0, "109.235.143.113", "de", apiKey, page))
+        provider.getOffers(requestUtil.generateQueryParams(this, appId, uid, pub0, "109.235.143.113", "de", apiKey, page))
                 .compose(this.<Response>bindUntilEvent(ActivityEvent.DESTROY))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(Schedulers.newThread())
                 .subscribe(new Action1<Response>() {
                     @Override
                     public void call(Response response) {
-                        OfferResponse offerResponse = RequestUtil.extractAndValidateResponse(((App) getApplication()).getGson(), response, apiKey);
+                        OfferResponse offerResponse = requestUtil.extractAndValidateResponse(((App) getApplication()).getGson(), response, apiKey);
                         if (offerResponse != null && offerResponse.getOffers() != null) {
                             updateOffersUiThread(clear, offerResponse.getOffers());
                         }

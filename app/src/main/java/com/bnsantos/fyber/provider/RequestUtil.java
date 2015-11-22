@@ -35,7 +35,7 @@ import retrofit.client.Response;
 public class RequestUtil {
     private static HashFunction hashFunction = Hashing.sha1();
 
-    public static Map<String, String> generateQueryParams(Context context, String appId, String uid, String pub0, String ip, String locale, String apiKey, int page) {
+    public Map<String, String> generateQueryParams(Context context, String appId, String uid, String pub0, String ip, String locale, String apiKey, int page) {
         Map<String, String> params = new HashMap<>();
         params.put(Constants.PARAM_APP_ID, appId);
         params.put(Constants.PARAM_DEVICE_ID, App.deviceId(context));
@@ -51,7 +51,7 @@ public class RequestUtil {
         return params;
     }
 
-    public static String generateHashKey(Map<String, String> params, String apiKey) {
+    private String generateHashKey(Map<String, String> params, String apiKey) {
         StringBuilder hashString = new StringBuilder();
         List<String> keys = new ArrayList<>(params.keySet());
         Collections.sort(keys);
@@ -64,7 +64,7 @@ public class RequestUtil {
         return hashFunction.hashString(hashString.toString(), Charsets.UTF_8).toString();
     }
 
-    public static OfferResponse extractAndValidateResponse(Gson gson, Response response, String apiKey) {
+    public OfferResponse extractAndValidateResponse(Gson gson, Response response, String apiKey) {
         if (response.getStatus() == 200) {
             String headerHash = extractResponseHeaderValidator(response);
             if (TextUtils.isEmpty(headerHash)) {
@@ -88,7 +88,7 @@ public class RequestUtil {
     }
 
 
-    private static String extractResponseHeaderValidator(Response response) {
+    private String extractResponseHeaderValidator(Response response) {
         List<Header> headers = response.getHeaders();
         for (int i = 0; i < headers.size(); i++) {
             Header header = headers.get(i);
@@ -99,7 +99,7 @@ public class RequestUtil {
         return null;
     }
 
-    private static String extractBody(Response response) {
+    private String extractBody(Response response) {
         StringBuilder sb = new StringBuilder();
         InputStream in = null;
         try {
