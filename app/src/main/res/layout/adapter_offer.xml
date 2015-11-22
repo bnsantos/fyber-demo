@@ -2,6 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/small_padding"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="@dimen/offer_picture_size"
+        android:layout_height="@dimen/offer_picture_size"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/teaser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/small_padding"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

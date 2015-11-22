@@ -6,8 +6,8 @@ import android.view.View;
 /**
  * Created by bruno on 21/11/15.
  */
-public class EmptyViewHolder extends RecyclerView.ViewHolder {
-    public EmptyViewHolder(View itemView) {
+public class MyViewHolder extends RecyclerView.ViewHolder {
+    public MyViewHolder(View itemView) {
         super(itemView);
     }
 }

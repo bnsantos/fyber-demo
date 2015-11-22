@@ -7,8 +7,10 @@
     <string name="pub0">Custom parameters</string>
     <string name="get_offers">Get Offers</string>
     <string name="empty_offers">No offers</string>
+    <string name="load_more">Load next page</string>
 
     <string name="error_cant_get_offers">Can\'t get offers with no uid, api key or appId</string>
     <string name="error_invalid_response">Invalid Response</string>
     <string name="error_unknown">Unknown Error</string>
+    <string name="error_no_app_open_link">There is no app to open the required link</string>
 </resources>
